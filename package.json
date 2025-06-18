@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/furkan-sonmez46/nodejs-hw-mongodb#readme",
   "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0",
     "nodemon": "^3.1.10"
   }
 }
