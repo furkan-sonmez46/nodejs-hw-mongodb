@@ -1,5 +1,8 @@
 // src/index.js
 
-const message = 'Hello world';
+// src/index.js
 
-console.log(message);
+import { setupServer } from './server.js';
+
+setupServer();
+
