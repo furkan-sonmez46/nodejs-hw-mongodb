@@ -69,7 +69,7 @@ export const setupServer = () => {
   app.use((req, res, next) => {
     res.json({
       status: 404,
-      message: 'Not found',
+      message: 'Contact not found',
     });
   });
 
