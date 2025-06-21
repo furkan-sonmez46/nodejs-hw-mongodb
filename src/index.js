@@ -1,11 +1,14 @@
-// src/index.js
-
+import { startServer } from './server.js';
 import { initMongoConnection } from './db/initMongoConnection.js';
-import { setupServer } from './server.js';
 
-const bootstrap = async () => {
-  await initMongoConnection();
-  setupServer();
+const initStart = async () => {
+  try {
+    await initMongoConnection();
+    startServer();
+    console.log('MongoDB connection initialized successfully');
+  } catch (error) {
+    console.error('Failed to initialize MongoDB connection:', error);
+  }
 };
 
-bootstrap();
+initStart();
