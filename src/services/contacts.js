@@ -14,3 +14,16 @@ export const createContact = async (contactData) => {
   const contact = await ContactsCollection.create(contactData);
   return contact;
 };
+
+export const updateContact = async (contactId, contactData, options = {}) => {
+  const updatedContact = await ContactsCollection.findByIdAndUpdate(
+    { _id: contactId },
+    contactData,
+    {
+      new: true,
+      includeResultMetadata: true,
+      ...options,
+    },
+  );
+  return updatedContact;
+};
