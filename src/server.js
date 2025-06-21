@@ -3,6 +3,7 @@ import pino from 'pino-http';
 import cors from 'cors';
 import { env } from './utils/env.js';
 import contactsRouter from './routers/contacts.js';
+import errorHandler from './middlewares/errorHandler.js';
 
 const PORT = Number(env('PORT', '3000'));
 
@@ -29,19 +30,13 @@ export const setupServer = () => {
   app.use('/contacts', contactsRouter);
 
   app.use((req, res, next) => {
-    res.json({
+    res.status(404).json({
       status: 404,
       message: 'Contact not found',
     });
   });
 
-  app.use((err, req, res, next) => {
-    res.json({
-      status: 500,
-      message: 'Something went wrong',
-      error: err.message,
-    });
-  });
+  app.use(errorHandler);
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
