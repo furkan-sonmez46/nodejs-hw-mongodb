@@ -18,10 +18,7 @@ export const getAllContacts = async ({
   if (filter.contactType) {
     contactQuery.where('contactType').equals(filter.contactType);
   }
-  // const contactCount = await ContactCollection.find()
-  //   .merge(contactQuery)
-  //   .countDocuments();
-  // const contacts = await contactQuery.skip(skip).limit(limit).sort({[sortBy]: sortOrder}).exec();
+
   const [contactCount, contacts] = await Promise.all([
     ContactCollection.find().merge(contactQuery).countDocuments(),
     contactQuery

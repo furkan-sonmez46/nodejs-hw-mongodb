@@ -1,16 +1,3 @@
-// export const errorHandler = (err, req, res, next) => {
-//   if (err.name === 'CastError') {
-//     return res.status(404).json({
-//       status: 404,
-//       message: 'Contact not found',
-//     });
-//   }
-//   res.status(500).json({
-//     message: 'Something went wrong',
-//     error: err.message,
-//   });
-// };
-
 import { HttpError } from 'http-errors';
 
 export const errorHandler = (err, req, res, next) => {
