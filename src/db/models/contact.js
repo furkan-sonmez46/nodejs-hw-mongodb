@@ -17,6 +17,7 @@ const contactShema = new Schema(
       ref: 'users',
       required: true,
     },
+    photo: { type: String },
   },
   {
     timestamps: true,
